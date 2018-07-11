@@ -1,0 +1,22 @@
+<!--index.wxml-->
+<view class="wrap">
+  <image class="bg" src="../../image/index_bg.jpg" mode="widthFix"></image>
+  <view class="card-list">
+    <view class="card-wrap" style="width:{{poetry.length*500+'rpx'}}">
+      <view wx:for="{{poetry}}"  wx:for-index="idx" wx:key class="card-item"  bindtap='touch' bindtouchstart = "handletouchtart" bindtouchmove="handletouchmove" bindtouchend="handletouchend" animation="{{animationData}}" wx:if="{{curIndex==idx}}">
+        <view class="card-box">
+          <text class="title">{{item.title}}</text>
+          <text class="author">{{item.author}}</text>
+          <text class="content">{{item.content}}</text>
+        </view>
+        <text class="page">第{{idx+1}}首</text>
+      </view>
+    </view>
+  </view>
+  <view class="dot-box">
+    <view class="dot-list" >
+      <view wx:for="{{poetry}}" wx:key  wx:for-index="idx" class="dot {{curIndex==idx?'active':''}}" ></view>
+    </view>
+    <view class="change" bindtap='changeGroup'>换一组</view>
+  </view>
+</view>

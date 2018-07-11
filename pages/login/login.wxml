@@ -1,0 +1,9 @@
+<!--pages/login/login.wxml-->
+<view class="wrap">
+  <image class="bg" src="../../image/login_bg.jpg" background-size="cover"></image>
+  <view wx:if="{{userInfo.nickName}}" class="user-box">
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </view>
+  <button class="start-btn"  open-type="getUserInfo" bindgetuserinfo="getUserInfo" hover-class='btn_hover'>开始</button>
+</view>

@@ -1,0 +1,7 @@
+<!--pages/test/test.wxml-->
+<view class="wrap">
+  <view></view>
+  <view class="answer">
+    <view class="item"></view>
+  </view>
+</view>
