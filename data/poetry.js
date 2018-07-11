@@ -56,24 +56,24 @@ var poetry = [{
   
 ]
 var testData = [{
-  question: '本次世界杯吉祥物扎比瓦卡是一只？',
+  question: '飞流直下三千尺，下一句是？',
   orderNum: 1,
   last: false,
   answer: {
     A: {
-      text: '白狐',
-      isRight: 0
+      text: '疑是银河落九天',
+      isRight: 1
     },
     B: {
-      text: '哈士奇',
+      text: '遥看瀑布挂前川',
       isRight: 0
     },
     C: {
-      text: '平原狼',
-      isRight: 1
+      text: '更添波浪向人间',
+      isRight: 0
     },
     D: {
-      text: '阿拉斯加',
+      text: '云自无心水自闲',
       isRight: 0
     },
   }

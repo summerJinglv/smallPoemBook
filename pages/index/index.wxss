@@ -1,0 +1,3 @@
+.item{height:250rpx;line-height:250rpx;text-align: center;color: #fff;margin:40rpx 30rpx;}
+.poem{background-image: linear-gradient(135deg, #79F1A4 0%, #0E5CAD 100%)}
+.test{background-image: linear-gradient(135deg, #FFF5C3 0%, #9452A5 100%)}

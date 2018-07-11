@@ -80,7 +80,7 @@ Page({
   
   onShareAppMessage: function (ops) {
     return {
-      title: '最美古诗词！',
+      title: '最美小诗簿，读一首小诗，换一种心情！',
       path: 'pages/login/login',
       imageUrl: '../../image/share_pic.jpg',
       success: function (res) {
