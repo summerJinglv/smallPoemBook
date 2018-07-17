@@ -19,3 +19,24 @@ background:rgba(255,255,255,0.8);border-radius: 25rpx;box-shadow:0 -10rpx 20rpx 
 border:4rpx solid rgba(100,100,100,0.2);
 width:200rpx;height:80rpx;line-height:80rpx;}
 .card-wrap{height:700rpx;}
+.music{position: fixed;right:40rpx;top:40rpx;font-size: 0}
+.music-btn{width:80rpx;height:80rpx;}
+.music.ani{animation: music 1.5s infinite linear}
+ @-webkit-keyframes music {
+    from {
+       transform:rotate(0deg);
+    }
+
+    to {
+       transform:rotate(360deg);
+    }
+}
+@keyframes music {
+    from {
+       transform:rotate(0deg);
+    }
+
+    to {
+       transform:rotate(360deg);
+    }
+}

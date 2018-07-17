@@ -1,0 +1,5 @@
+<!--pages/result/result.wxml-->
+<view class="res">
+你答对了{{showScore}}的题目
+</view>
+<view class="restart" bindtap='restart'>重新测试</view>

@@ -1,4 +1,7 @@
 const app = getApp()
+const innerAudioContext = wx.createInnerAudioContext()
+innerAudioContext.loop = true
+innerAudioContext.src = 'http://other.web.ri01.sycdn.kuwo.cn/resource/n3/9/64/3597190671.mp3'
 Page({
 
   /**
@@ -18,6 +21,7 @@ Page({
       title: '正在加载...',
       mask: false
     })
+    this.music();
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -47,7 +51,6 @@ Page({
   },
   onReady: function () {
     wx.hideLoading()
-    console.log(this.data.userInfo.nickName)
   },
 
   getUserInfo: function (e) {
@@ -98,4 +101,11 @@ Page({
     }
 
   },
+  music: function () {
+      innerAudioContext.play()
+      innerAudioContext.onError((res) => {
+        console.log(res.errMsg)
+        console.log(res.errCode)
+      })
+  }
 })

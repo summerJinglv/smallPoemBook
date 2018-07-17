@@ -1,2 +1,50 @@
 /* pages/test/test.wxss */
-.wrap{background: #ccc;}
+Page {background: #f6f6f6;height: 100wh}
+.wrap{height: 100wh}
+.part{overflow:hidden}
+.question{font-size: 28rpx;padding:20rpx;font-weight:bold;}
+.answer{font-size: 28rpx;padding:20rpx;line-height: 60rpx;}
+.bg{width:100vw}
+.que-box{width:80vw;margin: 0 auto 40rpx;background-color: #fff;border-radius: 30rpx;padding:20rpx 0;box-shadow: 0 0 10px #eee}
+.progress-box{width:100vw;height:10rpx;position: fixed;bottom:10rpx;background: #ddd;z-index:2}
+.num-pro{font-size: 20rpx;position: absolute;top:-25rpx;right:5rpx;line-height: 1}
+.real{background: #8BC34A;width:0;height:10rpx;transition: width .6s ease;
+    background-image: -webkit-linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+    background-image: -o-linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+    background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+    -webkit-background-size: 20px 20px;
+    background-size: 20px 20px;
+    animation: reverse progress-bar-stripes 0.40s linear infinite
+}
+.tit-pic{width:38rpx;height:31rpx;position: relative;top:4rpx;}
+.item{padding-left:80rpx;position: relative;margin-bottom:20rpx;}
+.item:last-child{margin-bottom: 0}
+.res-pic{width:30rpx;height:30rpx;}
+.orderNum{float: left;position: relative;margin-right: 15rpx;}
+.res-pic{position: absolute;z-index: 2;top:15rpx;left:40rpx;}
+::-webkit-scrollbar{width: 0;height: 0;background: transparent;color:#fff;}
+.item-sel{background:  #ffedee;}
+.sel-wrong{border:1rpx dashed #8BC34A}
+.sel-wrong:after{content:'✔';display: inline-block;font-size:24rpx;color:#a00;position: relative;top:-1rpx;left:25rpx;}
+
+
+ @-webkit-keyframes progress-bar-stripes {
+    from {
+        background-position: 20px 0
+    }
+
+    to {
+        background-position: 0 0
+    }
+}
+
+
+@keyframes progress-bar-stripes {
+    from {
+        background-position: 20px 0
+    }
+
+    to {
+        background-position: 0 0
+    }
+}

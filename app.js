@@ -1,3 +1,5 @@
+var utils=require('utils/util.js')
+
 //app.js
 App({
   onLaunch: function () {
@@ -35,5 +37,6 @@ App({
   },
   globalData: {
     userInfo: null
-  }
+  },
+  utils:utils
 })

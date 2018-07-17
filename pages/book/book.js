@@ -2,7 +2,9 @@
 //获取应用实例
 const app = getApp()
 var poetry = require("../../data/poetry.js");
-
+const innerAudioContext = wx.createInnerAudioContext()
+innerAudioContext.loop = true
+innerAudioContext.src = 'http://www.170mv.com/kw/other.web.ra01.sycdn.kuwo.cn/resource/n2/128/12/22/2072368440.mp3'
 Page({
   data: {
     poerty: '',
@@ -12,16 +14,18 @@ Page({
     lastX: 0,
     lastY: 0,
     currentGesture: 0,
+    play: true
   },
 
   onLoad: function () {
-    this.changeGroup();
+    this.randomPoetry()
     wx.getStorage({
       key: 'userInfo',
       success: function (res) {
         //console.log(res)
       },
     })
+    innerAudioContext.play()
 
   },
   handletouchtart: function (e) {
@@ -87,32 +91,15 @@ Page({
       })
     }, 500)
   },
-  changeGroup: function (e) {
-    var cache = poetry.poetry;
-    var count = cache.length;
-    var newPoetry = []
-    var arr = []
-    for (var i = 0; i < this.data.showNum; i++) {
-      var index = Math.floor(Math.random() * count);
-      if (arr.indexOf(index) == -1 && arr.length < this.data.showNum) {
-        arr.push(index)
-      } else {
-        while (arr.length < this.data.showNum) {
-          index = Math.floor(Math.random() * count);
-          if (arr.indexOf(index) == -1) {
-            arr.push(index)
-          }
-        }
-      }
-    };
-    for (var i in arr) {
-      newPoetry.push(cache[arr[i]])
-    }
-
+  randomPoetry:function(e){
+    var cache = poetry.poetry.concat();
+    app.utils.shuffle(cache)
+    var showPoetry=cache.slice(0,this.data.showNum)
     this.setData({
       curIndex: 0,
-      poetry: newPoetry
+      poetry: showPoetry
     })
+
   },
   onShareAppMessage: function (ops) {
     return {
@@ -133,5 +120,24 @@ Page({
       }
     }
 
+  },
+  bindmusic: function () {
+    if (this.data.play) {
+      this.data.play = false
+      this.setData({
+        play: this.data.play
+      })
+      innerAudioContext.pause()
+    } else {
+      this.data.play = true
+      this.setData({
+        play: this.data.play
+      })
+      innerAudioContext.play()
+      innerAudioContext.onError((res) => {
+        console.log(res.errMsg)
+        console.log(res.errCode)
+      })
+    }
   },
 })

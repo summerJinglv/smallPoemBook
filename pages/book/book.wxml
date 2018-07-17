@@ -17,6 +17,9 @@
     <view class="dot-list" >
       <view wx:for="{{poetry}}" wx:key  wx:for-index="idx" class="dot {{curIndex==idx?'active':''}}" ></view>
     </view>
-    <view class="change" bindtap='changeGroup'>换一组</view>
+    <view class="change" bindtap='randomPoetry'>换一组</view>
   </view>
 </view>
+   <view class="music {{play?'ani':''}}" bindtap='bindmusic'>
+    <image src="../../image/test_music.svg" class="music-btn"></image>
+   </view>

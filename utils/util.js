@@ -14,6 +14,19 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+const shuffle = arr =>{
+  //洗牌数组
+  var i = arr.length, t, j;
+  while (i) {
+    j = Math.floor(Math.random() * i--);
+    t = arr[i];
+    arr[i] = arr[j];
+    arr[j] = t;
+  }
+  return arr;
+}
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  shuffle: shuffle
 }

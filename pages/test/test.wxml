@@ -1,7 +1,29 @@
 <!--pages/test/test.wxml-->
-<view class="wrap">
-  <view></view>
-  <view class="answer">
-    <view class="item"></view>
-  </view>
+<scroll-view scroll-y="true"   scroll-top="{{scrollTop}}" style="height:100vh" scroll-with-animation="true">
+<view class="wrap" > 
+  <image src="../../image/test_bg.jpg" mode="widthFix" class="bg"></image>
+   <view class="que-box"> 
+    <view class="part" wx:for="{{showInfo}}" wx:key wx:for-index="index">
+      <view class="question animated slideInUp">
+        <image src="../../image/test_hua.png" class="tit-pic"></image>
+        {{index+1+'. '}}{{item.question}}
+      </view>
+      <view class="answer animated slideInUp">
+        <view class="item {{item.ansCurIndex==idx&&item.itemSel}} {{cell.isRight&&item.rightClass?'sel-wrong':''}}" wx:for="{{item.answer}}" wx:for-item="cell"  wx:for-index="idx" wx:key  bindtap='answer' animation="{{animateAns}}" data-isright="{{cell.isRight}}" data-index="{{index}}" data-idx="{{idx}}">
+          <view wx:if="{{idx==0}}" class="orderNum">A </view>
+          <view wx:if="{{idx==1}}" class="orderNum">B</view>
+          <view wx:if="{{idx==2}}" class="orderNum">C</view>
+          <view wx:if="{{idx==3}}" class="orderNum">D</view>
+          <image wx:if="{{item.ansCurIndex==idx}}" src="{{item.icon}}" class="res-pic"></image>
+          {{cell.text}} 
+        </view>
+      </view>
+    </view>
+   </view> 
 </view>
+</scroll-view>
+  <view class="progress-box">
+    <view class="num-pro">{{(proNum)+'/'+sumNum}}</view>
+    <view class="real" style="width:{{width}}"></view>
+  </view>
+
