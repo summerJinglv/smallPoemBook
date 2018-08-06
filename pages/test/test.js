@@ -4,7 +4,7 @@ var testData = require("../../data/poetry.js");
 const app = getApp()
 Page({
   data: {
-    sumNum: 5,
+    sumNum: 10,
     curIndex: 0,
     sumQues: '',
     animateQue: '',
@@ -18,6 +18,7 @@ Page({
     proNum:0,
     itemSel:'',
     rightClass:false,
+    ctx: '',
   },
   onLoad: function(options) {
     this.randomQue();
@@ -25,6 +26,7 @@ Page({
       showInfo: this.data.sumQues.slice(0, 1),
       width: 0/this.data.sumNum*100+'%'
     })
+    this.drawCanvas();
   },
   randomQue: function() {
     //随机选固定组题目
@@ -113,5 +115,55 @@ Page({
       }
     }
   },
-  
+  drawCanvas(){
+    var that=this;
+    wx.getSystemInfo({
+      success: function (res) {
+        var wid = res.windowWidth;
+        var hei = res.windowHeight
+        var ratio = wid / 750;
+        const ctx = wx.createCanvasContext('myCanvas');
+        that.setData({
+          ctx: ctx
+        })
+        var snow = 5;
+        var arr = []; 
+        for (var i = 0; i < snow; i++) {
+           var num = Math.floor(Math.random() * 3) ;
+          var w = Math.floor(Math.random() * 20)+10;
+          arr.push({
+            x: Math.random() * wid,
+            y: Math.random() * hei,
+            r: Math.random() * 10 + 1,
+            img: '../../image/petal_' + num + '.png',
+            w:w
+          })
+        }
+        setInterval(function () { 
+          that.drawOne(ctx, ratio, snow, arr, wid, hei)
+        }, 25);
+      }
+    })
+  },
+  drawOne: function (ctx, ratio, snow, arr, wid, hei){
+    for (var i = 0; i < snow; i++) {
+      var p = arr[i];
+      ctx.drawImage(p.img, p.x, p.y, p.w * ratio,p.w * ratio);
+    }
+    this.SnowFall(ctx, ratio, snow, arr, wid, hei);
+    ctx.draw();
+  },
+  SnowFall:function (ctx, ratio, snow, arr, wid, hei) {
+    for (var i = 0; i < snow; i++) {
+      var p = arr[i];
+      p.y += Math.random() * 0 + 1;
+      if (p.y > hei) {
+        p.y = 0;
+      }
+      p.x += Math.random() * 0 + 1;
+      if (p.x > wid) {
+        p.x = 0;
+      }
+    }
+  }
 })

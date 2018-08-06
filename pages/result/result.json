@@ -1,4 +1,6 @@
-{"backgroundColor": "#ffffff",
-"navigationBarBackgroundColor": "#000000",
-"navigationBarTextStyle": "white",
-"navigationBarTitleText": "诗词测一测结果"}
+{
+  "backgroundColor": "#ffffff",
+  "navigationBarBackgroundColor": "#000000",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "诗词达人证书"
+}

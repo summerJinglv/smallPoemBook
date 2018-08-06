@@ -27,6 +27,9 @@ Page {background: #f6f6f6;height: 100wh}
 .sel-wrong{border:1rpx dashed #8BC34A}
 .sel-wrong:after{content:'✔';display: inline-block;font-size:24rpx;color:#a00;position: relative;top:-1rpx;left:25rpx;}
 
+.canvas{width:100vw;position:fixed;top:0;left:0;bottom:0;height:auto;z-index: 9999;pointer-events: none}
+
+
 
  @-webkit-keyframes progress-bar-stripes {
     from {

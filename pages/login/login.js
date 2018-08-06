@@ -1,7 +1,7 @@
 const app = getApp()
 const innerAudioContext = wx.createInnerAudioContext()
 innerAudioContext.loop = true
-innerAudioContext.src = 'http://other.web.ri01.sycdn.kuwo.cn/resource/n3/9/64/3597190671.mp3'
+innerAudioContext.src = 'http://www.170mv.com/kw/other.web.ra01.sycdn.kuwo.cn/resource/n2/128/12/22/2072368440.mp3'
 Page({
 
   /**
@@ -107,5 +107,8 @@ Page({
         console.log(res.errMsg)
         console.log(res.errCode)
       })
+  },
+  onUnload: function(){
+    innerAudioContext.stop()
   }
 })

@@ -4,7 +4,7 @@ const app = getApp()
 var poetry = require("../../data/poetry.js");
 const innerAudioContext = wx.createInnerAudioContext()
 innerAudioContext.loop = true
-innerAudioContext.src = 'http://www.170mv.com/kw/other.web.ra01.sycdn.kuwo.cn/resource/n2/128/12/22/2072368440.mp3'
+innerAudioContext.src = 'http://other.web.ri01.sycdn.kuwo.cn/resource/n3/9/64/3597190671.mp3'
 Page({
   data: {
     poerty: '',
@@ -140,4 +140,7 @@ Page({
       })
     }
   },
+  onUnload: function () {
+    innerAudioContext.stop()
+  }
 })

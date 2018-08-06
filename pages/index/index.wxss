@@ -1,3 +1,5 @@
-.item{height:250rpx;line-height:250rpx;text-align: center;color: #fff;margin:40rpx 30rpx;}
-.poem{background-image: linear-gradient(135deg, #79F1A4 0%, #0E5CAD 100%)}
-.test{background-image: linear-gradient(135deg, #FFF5C3 0%, #9452A5 100%)}
+.item{height:240rpx;line-height:240rpx;color: #fff;margin:40rpx 30rpx;position: relative;border-radius:10px;overflow: hidden}
+.item image{position: absolute;left:0;top:0;width:100%;height:100%}
+.item navigator{position: relative;padding-left:40rpx;font-size: 44rpx;}
+.poem{box-shadow:0 2px 15px #d0e0e0}
+.test{box-shadow:0 2px 15px #f3cfcf}

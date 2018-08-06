@@ -1,6 +1,13 @@
 /* pages/result/result.wxss */
-.res{text-align: center;font-size: 28rpx;width:400rpx;margin:50rpx auto 0;height:500rpx;line-height: 500rpx;
-background-image: linear-gradient(135deg, #E7F0D2 0%, #ABCB89 100%);
-color:#fff;
-border-radius: 30rpx;}
-.restart{width:300rpx;margin: 50rpx auto;height: 88rpx;line-height: 88rpx;border-radius: 20rpx;text-align: center;border:1px solid #ABCB89;color:#ABCB89}
+page{overflow: hidden}
+.restart{width:250rpx;margin: 20rpx auto 0;font-size:14px;height: 76rpx;line-height:76rpx;border-radius: 50rpx;text-align: center;border:none;color:#fff;background:#d8abbf;background: linear-gradient(to right, #93364f, #c486a5)}
+.share-image {
+  width: 600rpx;
+  height: 880rpx;
+  margin: 20rpx auto 0;
+  display: block;
+  border: 1px solid #eee;
+}
+.opt-box{width:600rpx;margin:50rpx auto 0;padding:0 40rpx;text-align:center;box-sizing: border-box}
+.opt-box button{display:inline-block;font-size: 28rpx;margin:0 20rpx;background: #d8d5cc;border:1px solid #514529;color:#7b6a60;}
+.canvas{opacity:0;position:absolute;top:0;left: 10000rpx ;z-index:-1}

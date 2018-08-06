@@ -1,4 +1,10 @@
 <view class="wrap">
- <view class="item poem"><navigator url='../book/book'>小诗簿</navigator></view>
- <view class="item test"><navigator url='../test/test'>测一测</navigator></view>
+ <view class="item poem">
+  <image src="../../image/index_item_bg1.png" ></image>
+  <navigator url='../book/book'>小诗簿</navigator>
+ </view>
+ <view class="item test">
+  <image src="../../image/index_item_bg2.png" ></image>
+  <navigator url='../test/test'>测一测</navigator>
+ </view>
 </view>

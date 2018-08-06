@@ -1,5 +1,5 @@
 <!--pages/test/test.wxml-->
-<scroll-view scroll-y="true"   scroll-top="{{scrollTop}}" style="height:100vh" scroll-with-animation="true">
+<scroll-view scroll-y="true"   scroll-top="{{scrollTop}}" style="height:100vh;position:relative;" scroll-with-animation="true">
 <view class="wrap" > 
   <image src="../../image/test_bg.jpg" mode="widthFix" class="bg"></image>
    <view class="que-box"> 
@@ -19,6 +19,7 @@
         </view>
       </view>
     </view>
+  <canvas canvas-id="myCanvas" class="canvas"/>
    </view> 
 </view>
 </scroll-view>

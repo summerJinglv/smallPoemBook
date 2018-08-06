@@ -50,14 +50,19 @@ var poetry = [
     content: '胜日寻芳泗水滨，\n无边光景一时新。\n等闲识得东风面，\n万紫千红总是春。'
   },
   {
-    author: '王安石 ',
+    author: '王安石',
     title: '梅花',
     content: '墙角数枝梅，\n凌寒独自开。\n遥知不是雪，\n为有暗香来。'
   },
   {
-    author: '杨万里 ',
+    author: '杨万里',
     title: '小池',
     content: '泉眼无声惜细流，\n树阴照水爱晴柔。\n小荷才露尖尖角，\n早有蜻蜓立上头。'
+  },
+  {
+    author: '袁枚',
+    title: '十二月十五夜',
+    content: '沉沉更鼓急，\n渐渐人声绝。\n吹灯窗更明，\n月照一天雪。'
   },
   
 ]
@@ -312,7 +317,27 @@ var testData = [{
       isRight: 0
     }
   ]
-},
+  }, {
+  question: '沉沉更鼓急，下一句是？',
+    answer: [
+      {
+        text: '渐渐人声绝',
+        isRight: 1
+      },
+      {
+        text: '吹灯窗更明',
+        isRight: 0
+      },
+      {
+        text: '润物细无声',
+        isRight: 0
+      },
+      {
+        text: '月照一天雪',
+        isRight: 0
+      }
+    ]
+  },
 ]
 module.exports = {
   poetry: poetry,
