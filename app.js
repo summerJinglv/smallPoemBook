@@ -15,6 +15,7 @@ App({
       }
     })
     // 获取用户信息
+    /*
     wx.getSetting({
       success: res => {
         if (res.authSetting['scope.userInfo']) {
@@ -34,6 +35,7 @@ App({
         }
       }
     })
+    */
   },
   globalData: {
     userInfo: null

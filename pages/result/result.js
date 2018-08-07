@@ -9,7 +9,9 @@ Page({
     nickName:'',
     textCon:'',
     ctx: '',
-    uPhoto:''
+    uPhoto:'',
+    picOK:true,
+    writePhotosAlbum:false
   },
 
   onLoad: function (options) {
@@ -40,6 +42,15 @@ Page({
     this.setData({
       showScore: showScore,
       textCon: textCon,
+    })
+    wx.getSetting({
+      success: (res) => {
+       // console.log(res)
+        that.writePhotosAlbum = res.authSetting['scope.writePhotosAlbum']
+        this.setData({
+          writePhotosAlbum: that.writePhotosAlbum,
+        })
+      }
     })
     wx.getStorage({
       key: 'userInfo',
@@ -105,7 +116,7 @@ Page({
         that.setData({
           canvasTemppath: res.tempFilePath,
         })
-       // wx.hideLoading()
+        wx.hideLoading()
         wx.saveImageToPhotosAlbum({
           filePath: that.data.canvasTemppath,
           success(res) {
@@ -117,17 +128,10 @@ Page({
             })
           },
           fail(res) {
-           // console.log(res)
-            if (err.errMsg === "saveImageToPhotosAlbum:fail auth deny") {
-              wx.openSetting({
-                success(settingdata) {
-                  //console.log(settingdata)
-                  if (settingdata.authSetting['scope.writePhotosAlbum']) {
-                    console.log('获取权限成功，给出再次点击图片保存到相册的提示。')
-                  } else {
-                    console.log('获取权限失败，给出不给权限就无法正常使用的提示')
-                  }
-                }
+           console.log(res)
+            if (res.errMsg === "saveImageToPhotosAlbum:fail auth deny") {
+              wx.showLoading({
+                title: '请先授权相册',
               })
             }
           }
