@@ -9,7 +9,7 @@
         {{index+1+'. '}}{{item.question}}
       </view>
       <view class="answer animated slideInUp">
-        <view class="item {{item.ansCurIndex==idx&&item.itemSel}} {{cell.isRight&&item.rightClass?'sel-wrong':''}}" wx:for="{{item.answer}}" wx:for-item="cell"  wx:for-index="idx" wx:key  bindtap='answer' animation="{{animateAns}}" data-isright="{{cell.isRight}}" data-index="{{index}}" data-idx="{{idx}}">
+        <view class="item {{item.ansCurIndex==idx&&item.itemSel}} {{cell.isRight&&item.rightClass?'sel-wrong':''}}" wx:for="{{item.answer}}" wx:for-item="cell"  wx:for-index="idx" wx:key  bindtap='answer' animation="{{animateAns}}" data-isright="{{cell.isRight}}" data-index="{{index}}" data-idx="{{idx}}" data-click="{{clickArr[index]}}">
           <view wx:if="{{idx==0}}" class="orderNum">A </view>
           <view wx:if="{{idx==1}}" class="orderNum">B</view>
           <view wx:if="{{idx==2}}" class="orderNum">C</view>

@@ -93,6 +93,10 @@ Page({
   
   eventSave() {
     let that = this;
+    wx.showLoading({
+      title: '生成保存中',
+      mask: true
+    })
     wx.canvasToTempFilePath({
       x: 0,
       y: 0,
@@ -101,15 +105,31 @@ Page({
         that.setData({
           canvasTemppath: res.tempFilePath,
         })
-        wx.hideLoading()
+       // wx.hideLoading()
         wx.saveImageToPhotosAlbum({
           filePath: that.data.canvasTemppath,
           success(res) {
+            //console.log(res)
             wx.showToast({
               title: '已保存相册',
               icon: 'success',
               duration: 2500
             })
+          },
+          fail(res) {
+           // console.log(res)
+            if (err.errMsg === "saveImageToPhotosAlbum:fail auth deny") {
+              wx.openSetting({
+                success(settingdata) {
+                  //console.log(settingdata)
+                  if (settingdata.authSetting['scope.writePhotosAlbum']) {
+                    console.log('获取权限成功，给出再次点击图片保存到相册的提示。')
+                  } else {
+                    console.log('获取权限失败，给出不给权限就无法正常使用的提示')
+                  }
+                }
+              })
+            }
           }
         })
       },

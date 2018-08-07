@@ -12,13 +12,13 @@ Page({
     showInfo: '',
     scrollTop: 0,
     resIcon: '',
-    clickOne: false,
     score:0,
     width:0,
     proNum:0,
     itemSel:'',
     rightClass:false,
     ctx: '',
+    clickArr:[]
   },
   onLoad: function(options) {
     this.randomQue();
@@ -27,6 +27,12 @@ Page({
       width: 0/this.data.sumNum*100+'%'
     })
     this.drawCanvas();
+    for (var i=0;i<this.data.sumNum;i++){
+      this.data.clickArr[i]=false;
+    }
+    this.setData({
+      clickArr: this.data.clickArr
+    })
   },
   randomQue: function() {
     //随机选固定组题目
@@ -43,57 +49,58 @@ Page({
     //console.log(e)
     var index = e.target.dataset.index;
     var isRight = e.target.dataset.isright;
-    var ansCurIndex = e.target.dataset.idx
-    if (index == that.data.curIndex) {
-      if (!this.data.clickOne) {
-        if (isRight) {
-          var resIcon = '../../image/test_right.png'
-          this.data.score++;
-          var rightClass = false
-        } else {
-          wx.vibrateLong();
-          var resIcon = '../../image/test_wrong.png'
-          var rightClass=true
-        }
-        
-        if (that.data.curIndex == that.data.sumNum - 1) {
-          this.data.clickOne = true
-          var lastScore = this.data.score / this.data.sumNum
-          setTimeout(function() {
-            that.data.showInfo[that.data.curIndex].icon = resIcon
-            that.data.showInfo[that.data.curIndex].ansCurIndex = ansCurIndex
-            that.data.showInfo[that.data.curIndex].itemSel = 'item-sel'
-            that.data.showInfo[that.data.curIndex].rightClass = rightClass
-            that.setData({
-              showInfo: that.data.showInfo,
-              width: '100%',
-              proNum: that.data.sumNum
-            })
-          }, 500)
-          setTimeout(function () {
-            wx.redirectTo({
-              url: '../result/result?lastScore=' + lastScore
-            })
-          }, 1000)
+    var ansCurIndex = e.target.dataset.idx;
+    var click = e.target.dataset.click;
+    if(!click){
+          if (isRight) {
+            var resIcon = '../../image/test_right.png'
+            this.data.score++;
+            var rightClass = false
+          } else {
+            wx.vibrateLong();
+            var resIcon = '../../image/test_wrong.png'
+            var rightClass=true
+          }
+          this.data.clickArr[index]=true
+          this.setData({
+            clickArr: this.data.clickArr
+          })
+          if (that.data.curIndex == that.data.sumNum - 1) {
+            var lastScore = this.data.score / this.data.sumNum
+            setTimeout(function() {
+              that.data.showInfo[that.data.curIndex].icon = resIcon
+              that.data.showInfo[that.data.curIndex].ansCurIndex = ansCurIndex
+              that.data.showInfo[that.data.curIndex].itemSel = 'item-sel'
+              that.data.showInfo[that.data.curIndex].rightClass = rightClass
+              that.setData({
+                showInfo: that.data.showInfo,
+                width: '100%',
+                proNum: that.data.sumNum
+              })
+            }, 500)
+            setTimeout(function () {
+              wx.redirectTo({
+                url: '../result/result?lastScore=' + lastScore
+              })
+            }, 1000)
 
-        } else {
-          setTimeout(function() {
-            that.data.showInfo[that.data.curIndex].icon = resIcon
-            that.data.showInfo[that.data.curIndex].ansCurIndex = ansCurIndex
-            var newItem = that.data.sumQues[that.data.curIndex + 1]
-            that.data.showInfo[that.data.curIndex].itemSel = 'item-sel'
-            that.data.showInfo[that.data.curIndex].rightClass = rightClass
-            that.data.showInfo.push(newItem);
-            that.setData({
-              curIndex: that.data.curIndex + 1,
-              showInfo: that.data.showInfo,
-              width: (that.data.curIndex + 1) / that.data.sumNum * 100 + '%',
-              proNum: that.data.proNum+1,
-              scrollTop: that.data.scrollTop + 1800
-            })
-          }, 500)
-        }
-      }
+          } else {
+            setTimeout(function() {
+              that.data.showInfo[that.data.curIndex].icon = resIcon
+              that.data.showInfo[that.data.curIndex].ansCurIndex = ansCurIndex
+              var newItem = that.data.sumQues[that.data.curIndex + 1]
+              that.data.showInfo[that.data.curIndex].itemSel = 'item-sel'
+              that.data.showInfo[that.data.curIndex].rightClass = rightClass
+              that.data.showInfo.push(newItem);
+              that.setData({
+                curIndex: that.data.curIndex + 1,
+                showInfo: that.data.showInfo,
+                width: (that.data.curIndex + 1) / that.data.sumNum * 100 + '%',
+                proNum: that.data.proNum+1,
+                scrollTop: that.data.scrollTop + 1800
+              })
+            }, 500)
+          }
     }
   },
   onShareAppMessage: function(ops) {
