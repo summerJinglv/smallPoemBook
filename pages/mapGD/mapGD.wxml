@@ -1,0 +1,18 @@
+<!--pages/mapGD/mapGD.wxml-->
+<view class="map_container"> 
+  <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="18" show-location="true" markers="{{markers}}" bindmarkertap="makertap" show-location bindregionchange="regionchange"></map> 
+  <cover-image src="../../image/gd_map_now.png" class="now-icon"></cover-image>
+</view>
+ <cover-view class="now-location" bindtap="getLoc">
+    <cover-image class="img" src="/image/now_location.png" />
+  </cover-view>
+<cover-view class="b-box">
+  <cover-view class="tit">{{endAddress.name}}</cover-view>
+  <cover-view class="des">{{endAddress.desc}}</cover-view>
+  <button class="draw" bindtap='draw'>绘制静态图</button>
+</cover-view>
+<cover-image src="{{src}}" class="static" wx:if="{{staticShow}}"></cover-image>
+<cover-view class="close-box" wx:if="{{staticShow}}"  bindtap="close">
+  <button class="close">×</button>
+</cover-view>
+

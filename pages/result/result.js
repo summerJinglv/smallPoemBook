@@ -16,7 +16,7 @@ Page({
 
   onLoad: function (options) {
     var that=this;
-    var lastScore = options.lastScore;
+    var lastScore = options.lastScore||1;
     //console.log(lastScore)
     var showScore = '0%';
     var textCon='';
@@ -43,19 +43,11 @@ Page({
       showScore: showScore,
       textCon: textCon,
     })
-    wx.getSetting({
-      success: (res) => {
-       // console.log(res)
-        that.writePhotosAlbum = res.authSetting['scope.writePhotosAlbum']
-        this.setData({
-          writePhotosAlbum: that.writePhotosAlbum,
-        })
-      }
-    })
+
     wx.getStorage({
       key: 'userInfo',
       success: function (res) {
-       // console.log(res)
+        console.log(res)
         that.setData({
           avatarUrl: res.data.avatarUrl,
           nickName: res.data.nickName,
@@ -70,9 +62,38 @@ Page({
           }
         })
       },
+      fail:function(){
+        console.log("获取用户信息失败，可能没有登录")
+      }
     })
   },
-
+  onShow:function(){
+    var that=this
+    wx.getSetting({
+      success: (res) => {
+        console.log(res)
+        if (!res.authSetting['scope.writePhotosAlbum']) {
+          wx.authorize({
+            scope: 'scope.writePhotosAlbum',
+            success() {//这里是用户同意授权后的回调
+              that.setData({
+                writePhotosAlbum: true,
+              })
+            },
+            fail() {//这里是用户拒绝授权后的回调
+              that.setData({
+                writePhotosAlbum: false,
+              })
+            }
+          })
+        } else {//用户已经授权过了
+          that.setData({
+            writePhotosAlbum: true,
+          })
+        }
+      }
+    })
+  },
   onShareAppMessage: function (ops) {
     if (ops.from === 'button') {
       // 来自页面内转发按钮
@@ -169,6 +190,7 @@ Page({
 
     wx.getSystemInfo({
       success: function (res) {
+        console.log(res)
         var wWidth = res.windowWidth;
         var wHeight = res.windowHeight
         var ratio = wWidth / 750;
@@ -214,6 +236,7 @@ Page({
         ctx.fillText('获取属于你的称号吧', 600 * ratio / 2 , 810 * ratio);
 
         ctx.draw(true,function(){
+          console.log(11111)
           that.getImage();
         });
 

@@ -2,8 +2,8 @@
 <canvas canvas-id="myCanvas" class="share-image canvas"/>
 <image src="{{shareImage}}" class="share-image"></image>
 <view class="opt-box">
-  <button bind:tap="eventSave" wx:if="{{writePhotosAlbum}}">保存到相册</button>
-  <button bind:tap="eventSave" open-type="openSetting" wx:if="{{!writePhotosAlbum}}">保存到相册</button>
+  <button bindtap="eventSave" wx:if="{{writePhotosAlbum}}">保存到相册</button>
+  <button open-type="openSetting" wx:if="{{!writePhotosAlbum}}">保存到相册</button>
   <button open-type="share">分享给朋友</button>
 </view>
 <view class="restart" bindtap='restart'>重新测试</view>

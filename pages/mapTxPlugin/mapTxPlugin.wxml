@@ -1,0 +1,4 @@
+<!--pages/mapTxPlugin/mapTxPlugin.wxml-->
+<view class="main">
+ <map-route route-info="{{routeInfo}}" class="map"></map-route>
+</view>

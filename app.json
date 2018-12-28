@@ -2,14 +2,31 @@
   "pages": [
     "pages/login/login",
     "pages/result/result",
-    "pages/test/test",
+    "pages/mapList/mapList",
+    "pages/mapGD/mapGD",
+    "pages/mapBD/mapBD",
+    "pages/mapTX/mapTX",
     "pages/index/index",
-    "pages/book/book"
+    "pages/test/test",
+    "pages/book/book",
+    "pages/mapTxPlugin/mapTxPlugin"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "小诗簿",
     "navigationBarTextStyle": "black"
-  }
+  },
+  "plugins": {
+    "myPlugin": {
+      "version": "1.0.6",
+      "provider": "wx5bc2ac602a747594"
+    }
+  },
+  "permission":{
+    "scope.userLocation":{
+      "desc":"你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "withShareTicket": true
 }

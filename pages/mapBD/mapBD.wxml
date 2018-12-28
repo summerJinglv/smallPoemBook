@@ -1,0 +1,27 @@
+<!--pages/mapBD/mapBD.wxml-->
+<view class="map_container"> 
+  <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="18" show-location="true" markers="{{markers}}" bindmarkertap="makertap" show-location></map> 
+  <cover-view class="weather-box" animation="{{animationData}}" wx:if="{{weatherShow}}">
+    <cover-view class="w-item tit">{{weather.weatherDesc}}
+     <cover-view class="num">{{weather.temperature}}</cover-view> 
+    </cover-view>
+    <cover-view class="w-item">{{weather.date}}</cover-view>
+    <cover-view class="w-item">PM2.5：{{weather.pm25}}</cover-view>
+  </cover-view>
+  <cover-view class="weather-i" bindtap="weatherToggle">
+     <cover-image src="../../image/bd_map_weather.png" class="img"></cover-image>
+  </cover-view>
+  <cover-view class="now-location" bindtap="getLoc">
+    <cover-image class="img" src="/image/now_location.png" />
+  </cover-view>
+</view> 
+<view class="input-item">
+  <input type="text" placeholder='请输入搜索关键字' value='{{keyWord}}' bindinput='searchInput' cursor-spacing="185rpx"></input>
+  <image src="../../image/bd_map_clear.png" bindtap='inputClear' wx:if="{{keyWord!=''}}"></image>
+</view>
+<view class="sug-list">
+  <view  wx:for="{{sugData}}" wx:key="index" class="sug-item" bindtap='copyIn' data-index="{{index}}">
+    <image src="../../image/bd_map_ser_icon.png"></image>{{item.name}}
+  </view>
+</view>
+<view class="tip"  wx:if="{{noRes}}">没有相关信息</view>

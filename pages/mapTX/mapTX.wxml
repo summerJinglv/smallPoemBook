@@ -1,0 +1,26 @@
+<!--pages/mapTX/mapTX.wxml-->
+<view class="">
+    <map id="myMap" longitude="{{location.longitude}}" latitude="{{location.latitude}}" scale="{{scale}}" circles="{{circles}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap"  bindregionchange="regionchange" show-location  show-compass class="map-index" ></map>
+    <cover-view class="now-location" bindtap="nowLocation">
+      <cover-image class="img" src="/image/now_location.png" />
+    </cover-view>
+    <cover-view class="scale-max {{scalMaxS?'disabled':''}}" bindtap="maxMin" id="max">
+      <cover-image class="img" src="/image/max.png"/>
+    </cover-view>
+    <cover-view class="scale-min {{scalMinS?'disabled':''}}" bindtap="maxMin" id="min">
+      <cover-image class="img" src="/image/min.png"/>
+    </cover-view>
+    <cover-view class="center-loc" bindtap="openLocation">
+      <cover-image class="img" src="/image/end_location.png"/>
+    </cover-view>
+    <view class="info-box">
+      <view class="loca-input-item">
+        <text class="loca-label">选择地址：</text>
+        <text class="loca-input" bindtap="addressSel">{{addressEnd}}</text>
+      </view>
+      <view class="picker">
+        <button class="start-btn" bindtap="startGo">查询线路</button>
+      </view>
+    </view>
+</view>
+

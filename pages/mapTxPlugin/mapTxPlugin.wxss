@@ -1,0 +1,4 @@
+/* pages/mapTxPlugin/mapTxPlugin.wxss */
+.main{height: 90vh;}
+.mapRoute--multi-page{height: 98vh !important}
+.mapRoute--bottom_tip_text{display: none}

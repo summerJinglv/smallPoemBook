@@ -1,0 +1,6 @@
+/* pages/mapList/mapList.wxss */
+.map-list{}
+.item{color: #fff;height: 33.333333vh;box-sizing: border-box;line-height: 33.333333vh;text-align: center;letter-spacing: 15rpx;}
+.item:nth-child(1){background: #D08197;}
+.item:nth-child(2){background: #816E8B;}
+.item:nth-child(3){background: #426E8F;}

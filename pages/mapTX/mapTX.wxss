@@ -1,0 +1,13 @@
+/* pages/mapTX/mapTX.wxss */
+.map-index{width:100%;height:86vh}
+.now-location{width:110rpx;height:110rpx;position: absolute;right:20rpx;bottom:250rpx;}
+.scale-max{width:110rpx;height:110rpx;position: absolute;right:20rpx;bottom:500rpx;}
+.scale-min{width:110rpx;height:110rpx;position: absolute;right:20rpx;bottom:400rpx;}
+.scale-max.disabled{opacity: 0.6}
+.scale-min.disabled{opacity: 0.6}
+.center-loc{width:32rpx;height:50rpx;position: absolute;left:50%;top:43vh;margin-left:-16rpx;margin-top:-50rpx;}
+.info-box{font-size: 28rpx;padding:2vh 20rpx;height:10vh}
+.loca-input-item{height:5vh;display:flex;}
+.loca-input{height: auto;line-height: 5vh;min-height: auto;width:100%}
+.loca-label{line-height: 5vh;white-space: nowrap}
+.start-btn{display:block;font-size: 28rpx;background: #06c261;color:#fff}

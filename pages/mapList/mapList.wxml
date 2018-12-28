@@ -1,0 +1,12 @@
+<!--pages/mapList/mapList.wxml-->
+<view class="map-list">
+  <view class="item">
+    <navigator url='../mapTX/mapTX'>腾讯地图</navigator>
+  </view>
+  <view class="item">
+    <navigator url='../mapBD/mapBD'>百度地图</navigator>
+  </view>
+  <view class="item">
+    <navigator url='../mapGD/mapGD'>高德地图</navigator>
+  </view>
+</view>

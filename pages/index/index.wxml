@@ -7,4 +7,8 @@
   <image src="../../image/index_item_bg2.png" ></image>
   <navigator url='../test/test'>测一测</navigator>
  </view>
+ <view class="item test">
+  <image src="../../image/index_item_bg3.png" ></image>
+  <navigator url='../mapList/mapList'>地图 map</navigator>
+ </view>
 </view>

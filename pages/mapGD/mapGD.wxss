@@ -1,0 +1,24 @@
+/* pages/mapGD/mapGD.wxss */
+
+.map_container{
+    height:100vh;
+    width: 100%;
+    position: relative;
+}
+
+.map {
+    height: 100%;
+    width: 100%;
+}
+.now-icon{width:45rpx;height:86rpx;position: absolute;top:50%;left:50%;margin-left:-22.5rpx;margin-top:-86rpx;}
+.b-box{font-size: 28rpx;position: absolute;bottom:20rpx;background: #fff;left:20rpx;right:20rpx;padding:30rpx;box-shadow: 0 0 3px #eaeaea;border-radius: 10rpx;}
+.tit{margin-top: 20rpx;}
+.des{color:#999;margin-top: 10rpx;}
+.draw{font-size: 28rpx;color:#fff;background: #25A5F7;margin-top: 30rpx;padding:5rpx 0}
+.static{position: absolute;left:0;top:0;bottom:0;right:0}
+.close-box{position: absolute;top:0;right:0;font-size: 0}
+.close{background: #25A5F7;font-size:80rpx;color:#fff;border:none;border-radius: 0;width:90rpx;height:90rpx;line-height: 1;text-align: center;}
+button::after {
+  border: none;
+}
+.now-location{width:110rpx;height:110rpx;position: absolute;right:20rpx;top:100rpx;}
